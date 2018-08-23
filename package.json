@@ -1,0 +1,28 @@
+{
+  "name": "eslint-plugin-test",
+  "version": "0.0.0",
+  "description": "sdf",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Tommy",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "esquery": "^1.0.1",
+    "lodash": "^4.17.10",
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.0",
+    "mocha": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
