@@ -37,20 +37,6 @@ function doSomething(req, res, next) {
 }
 `;
 
-const badKeywordClient = `
-const express = require('express');
-const router = express.Router();
-const keyword = require('../../keywordClient');
-
-router.post('/blah/keyword/asdad', blah.inAnyGroup(asd), doSomething);
-function doSomething(req, res, next) {
-    db.blah.find()
-        .then(()=> {
-            return keywordClient(blah).postAsync('/first/blah/blah/end', parameters);
-        });
-}
-`;
-
 const doesntUsePost = `
 const express = require('express');
 const router = express.Router();
@@ -103,13 +89,6 @@ ruleTester.run("test", rule, {
     ],
 
     invalid: [
-        {
-            code: badKeywordClient,
-            errors: [{
-                message: 'KeywordClient import must be named "keywordClient".',
-                type: "VariableDeclarator"
-            }]
-        },
         {
             code: doesntUsePost,
             errors: [{
