@@ -2,22 +2,20 @@
  * @fileoverview dg
  * @author Tommy
  */
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/test"),
-
-    RuleTester = require("eslint").RuleTester;
+var rule = require('../../../lib/rules/test'),
+    RuleTester = require('eslint').RuleTester;
 
 RuleTester.setDefaultConfig({
     parserOptions: {
         ecmaVersion: 6
     }
 });
-
 
 //------------------------------------------------------------------------------
 // Tests
@@ -80,8 +78,7 @@ function doSomething(req, res, next) {
 `;
 
 var ruleTester = new RuleTester();
-ruleTester.run("test", rule, {
-
+ruleTester.run('test', rule, {
     valid: [
         {
             code: goodCode
@@ -91,24 +88,30 @@ ruleTester.run("test", rule, {
     invalid: [
         {
             code: doesntUsePost,
-            errors: [{
-                message: 'Keyword call must use POST.',
-                type: 'CallExpression'
-            }]
+            errors: [
+                {
+                    message: 'Keyword call must use POST.',
+                    type: 'CallExpression'
+                }
+            ]
         },
         {
             code: noPostRoute,
-            errors: [{
-                message: 'This route contains a call to Keyword and should be a POST.',
-                type: 'CallExpression'
-            }]
+            errors: [
+                {
+                    message: 'This route contains a call to Keyword and should be a POST.',
+                    type: 'CallExpression'
+                }
+            ]
         },
         {
             code: noAnyGroup,
-            errors: [{
-                message: 'This route should be behind some permission check.',
-                type: 'CallExpression'
-            }]
+            errors: [
+                {
+                    message: 'This route should be behind some permission check.',
+                    type: 'CallExpression'
+                }
+            ]
         }
     ]
 });
